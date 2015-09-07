@@ -14,12 +14,15 @@ function demo({DOM}) {
   return {
     DOM: Rx.Observable.combineLatest(
       <%= moduleNameCamelized %>Instance.DOM,
-      (<%= moduleNameCamelized %>VTree) => ( // eslint-disable-line
+      <%= moduleNameCamelized %>Instance.state$,
+      (<%= moduleNameCamelized %>VTree, <%= moduleNameCamelized %>State) => ( // eslint-disable-line
         <div className=
                {`template-DemoPages_sectionContainer isVertical isCentered`}>
           <h4>Default</h4>
           <section className={`template-DemoPages_verticalSection`}>
             {<%= moduleNameCamelized %>VTree}
+
+            <p>The <%= moduleName %> state data is: {<%= moduleNameCamelized %>State.data}</p>
           </section>
         </div>
       )
