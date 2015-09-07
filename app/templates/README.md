@@ -18,7 +18,7 @@ const <%= moduleNameCamelized %>Instance = <%= moduleNameCamelized %>({DOM});
 
 ## API
 
-### <%= moduleNameCamelized %>({DOM, props$}, optNamespace)
+### <%= moduleNameCamelized %>({DOM, props$}, optCycleId)
 
 #### DOM
 
@@ -32,12 +32,18 @@ Type: `Observable`
 
 Sequence of properties.
 
-#### optNamespace
+#### optCycleId
 
 Type: `String`
-Default: `n++`, `let n = 0;`
+Default: `` `${<%= moduleName %>}-${idSuffix++}` ``, `let idSuffix = 0;`
 
-Optional CSS class name as namespace.
+Optional CSS class name as cycle Id.
+
+#### Returns
+
+Type: `Object`
+
+`{DOM, state$}`
 
 ## Licence
 
