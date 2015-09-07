@@ -68,6 +68,7 @@ module.exports = yeoman.generators.Base.extend({
       mv('gitattributes', '.gitattributes');
       mv('gitignore', '.gitignore');
       mv('eslintrc', '.eslintrc');
+      mv('eslintignore', '.eslintignore');
       mv('_package.json', 'package.json');
       mv('_postcss.config.json', 'postcss.config.json');
       mv('module.js', tpl.moduleName + '.js');
