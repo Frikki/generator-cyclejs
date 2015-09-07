@@ -1,6 +1,6 @@
 {
   "name": "generator-cyclejs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Scaffold out a Cycle.js Nested Dialogue module.",
   "license": "MIT",
   "bugs": "https://github.com/Frikki/generator-cyclejs/issues",
