@@ -27,8 +27,7 @@
     "app"
   ],
   "keywords": [
-    "yeoman",
-    "generator",
+    "yeoman-generator",
     "cycle.js",
     "nested dialogue",
     "module"
