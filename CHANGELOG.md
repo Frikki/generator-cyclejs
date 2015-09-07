@@ -1,3 +1,14 @@
+# v1.2.0 (2015-09-08)
+
+
+## Features
+
+- **demo:** use module.state$
+  ([cf58f62e](https://github.com/Frikki/generator-cyclejs/commits/cf58f62e27806f97270048732bd0665dc3c215f3))
+- **module.js:** add state$ property to returned object.
+  ([fcbc2861](https://github.com/Frikki/generator-cyclejs/commits/fcbc2861bc9a3144d792a1868e6830784be51f4d))
+
+
 # v1.1.0 (2015-09-07)
 
 
