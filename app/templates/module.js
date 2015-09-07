@@ -1,27 +1,51 @@
 /** @jsx hJSX */
 
-import {Rx} from '@cycle/core';
 import {hJSX} from '@cycle/dom'; // eslint-disable-line
 
-const DIALOGUE_NAME = `<%= moduleName %>`;
+const DIALOGUE_NAME = `yeoman-test`;
 
-let n = 0;
+let idSuffix = 0;
 
-function randomNamespace() {
-  return `${n++}`;
+function makeCycleId() {
+  return `${DIALOGUE_NAME}-${idSuffix++}`;
 }
 
-function <%= moduleNameCamelized %>({DOM, props$}, optNamespace = randomNamespace()) {
-  const namespace = optNamespace.trim();
+function intent(DOM, cycleId) {
+  return {
+    isClicked$: DOM.select(`.${cycleId}`).events(`click`)
+      .map(() => true)
+      .startWith(false),
+  };
+}
+
+function model(actions) {
+  return actions.isClicked$.map(isClicked => {
+    return {
+      data: isClicked ?
+        <span style={{whiteSpace: `nowrap`}}>I was clicked</span> :
+        `Click me!`,
+    };
+  });
+}
+
+function view({props$, state$}, cycleId) {
+  return props$.combineLatest(
+    state$,
+    (props, state) => ( // eslint-disable-line
+      <div className={`${cycleId} ${DIALOGUE_NAME}`}>
+        {props.text} {state.data}
+      </div>
+    )
+  );
+}
+
+function <%= moduleNameCamelized %>({DOM, props$}, optCycleId = makeCycleId()) {
+  const cycleId = optCycleId.trim();
+  const actions = intent(DOM, cycleId);
+  const state$ = model(actions);
 
   return {
-    DOM: props$.map(
-      (props) => ( // eslint-disable-line
-        <div className={`${namespace} ${DIALOGUE_NAME}`}>
-          {props.text}
-        </div>
-      )
-    ),
+    DOM: view({props$, state$}, cycleId),
   };
 }
 
