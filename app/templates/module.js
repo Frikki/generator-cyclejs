@@ -46,6 +46,7 @@ function <%= moduleNameCamelized %>({DOM, props$}, optCycleId = makeCycleId()) {
 
   return {
     DOM: view({props$, state$}, cycleId),
+    state$,
   };
 }
 
