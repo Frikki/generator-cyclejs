@@ -1,3 +1,12 @@
+# v1.3.0 (2015-09-08)
+
+
+## Features
+
+- **README:** update to reflect module
+  ([7d9e66e8](https://github.com/Frikki/generator-cyclejs/commits/7d9e66e899e9afb3cd65e041abf022e828791f23))
+
+
 # v1.2.0 (2015-09-08)
 
 
