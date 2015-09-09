@@ -1,8 +1,8 @@
-#generator-cyclejs
+# generator-cyclejs
 
 > Scaffold out a [Cycle.js] Nested Dialogue module.
 
-##Installation
+## Installation
 
 ```shell
 $ npm install --global generator-cyclejs
