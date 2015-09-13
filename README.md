@@ -44,6 +44,8 @@ The following development dependency node modules are also installed:
 - [eslint-config-cycle]
 - [eslint-plugin-cycle]
 - [eslint-plugin-no-class]
+- [postcss^4.0.0]
+- [postcss-cli^1.0.0]
 - [validate-commit-message]
 
 ## Changelog
@@ -70,5 +72,7 @@ MIT © [Frederik Krautwald](https://github.com/Frikki)
 [eslint-config-cycle]: https://www.npmjs.com/package/eslint-config-cycle
 [eslint-plugin-cycle]: https://www.npmjs.com/package/eslint-plugin-cycle
 [eslint-plugin-no-class]: https://www.npmjs.com/package/eslint-plugin-no-class
+[postcss^4.0.0]: https://www.npmjs.com/package/postcss
+[postcss-cli^1.0.0]: https://www.npmjs.com/package/postcss-cli
 [validate-commit-message]: https://www.npmjs.com/package/validate-commit-message
 [Changelog]: https://github.com/Frikki/generator-cyclejs/blob/master/CHANGELOG.md
