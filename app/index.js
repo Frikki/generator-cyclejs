@@ -9,9 +9,11 @@ var normalizeUrl = require('normalize-url');
 var humanizeUrl = require('humanize-url');
 var superb = require('superb');
 
+var tpl;
+
 module.exports = yeoman.generators.Base.extend({
-  init: function () {
-    var cb = this.async();
+  initializing: function () {
+    var done = this.async();
 
     var brandColor = chalk.cyan;
 
@@ -45,7 +47,7 @@ module.exports = yeoman.generators.Base.extend({
         return normalizeUrl(websiteUrl);
       }
     }], function (props) {
-      var tpl = {
+      tpl = {
         moduleName: props.moduleName,
         moduleNameCamelized: camelize(props.moduleName, true),
         githubUserName: props.githubUserName,
@@ -56,28 +58,41 @@ module.exports = yeoman.generators.Base.extend({
         superb: superb()
       };
 
-      var mv = function (source, destination) {
-        this.fs.move(
-          this.destinationPath(source), this.destinationPath(destination)
-        );
-      }.bind(this);
-
-      this.fs.copyTpl(this.templatePath('**/*'), this.destinationPath(), tpl);
-
-      mv('editorconfig', '.editorconfig');
-      mv('gitattributes', '.gitattributes');
-      mv('gitignore', '.gitignore');
-      mv('eslintrc', '.eslintrc');
-      mv('eslintignore', '.eslintignore');
-      mv('_package.json', 'package.json');
-      mv('_postcss.config.json', 'postcss.config.json');
-      mv('module.js', tpl.moduleName + '.js');
-      mv('module.css', tpl.moduleName + '.css');
-
-      this.spawnCommand('git', ['init']);
-
-      cb();
+      done();
     }.bind(this));
+  },
+
+  writing: function () {
+    var done = this.async();
+
+    var mv = function (source, destination) {
+      this.fs.move(
+        this.destinationPath(source), this.destinationPath(destination)
+      );
+    }.bind(this);
+
+    this.fs.copyTpl([
+      this.templatePath() + '/**',
+      '!**/module/*'
+    ], this.destinationPath(), tpl);
+
+    this.fs.copyTpl(
+      this.templatePath('module') + '/**',
+      this.destinationPath(tpl.moduleName), tpl);
+
+    mv('editorconfig', '.editorconfig');
+    mv('gitattributes', '.gitattributes');
+    mv('gitignore', '.gitignore');
+    mv('eslintrc', '.eslintrc');
+    mv('eslintignore', '.eslintignore');
+    mv('_package.json', 'package.json');
+    mv('_postcss.config.json', 'postcss.config.json');
+    mv('module.js', tpl.moduleName + '.js');
+    mv('module.css', tpl.moduleName + '.css');
+
+    this.spawnCommand('git', ['init']);
+
+    done();
   },
 
   install: function () {
@@ -87,7 +102,6 @@ module.exports = yeoman.generators.Base.extend({
 
     this.npmInstall([
       'babel',
-      'babel-runtime',
       'babelify',
       'browserify',
       'cssnext',
@@ -107,6 +121,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   end: function () {
+
     this.log(yosay(chalk.green('Scaffolding completed!') + 'Building the demo.'));
 
     this.spawnCommand('npm', ['start']);
