@@ -20,7 +20,7 @@
     "lint": "eslint ./**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "postcss -c postcss.config.json",
-    "browserify": "browserify demo/main.js -d -t [ babelify --optional runtime ] --outfile demo/bundle.js",
+    "browserify": "browserify demo/main.js -d -t babelify --outfile demo/bundle.js",
     "build": "npm run lint && npm run css && npm run browserify",
     "init": "npm install && validate-commit-msg",
     "start": "npm run init && npm run build && echo 'Open demo/index.html in your browser'",
@@ -33,7 +33,8 @@
   ],
   "keywords": [],
   "dependencies": {
-    "template-demo-pages": "git://github.com/CyclicMaterials/template-demo-pages"
+    "@cyclic/template-demo-pages": "^1.0.0",
+    "cuid": "^1.3.8"
   },
   "devDependencies": {
     "postcss": "^4.0.0",

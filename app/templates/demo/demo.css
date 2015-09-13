@@ -1,5 +1,5 @@
 @import "../<%= moduleName %>.css";
-@import "template-demo-pages/template-demo-pages";
+@import "@cyclic/template-demo-pages/template-demo-pages.css";
 
 body {
   padding: 40px;
