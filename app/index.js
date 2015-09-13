@@ -114,7 +114,9 @@ module.exports = yeoman.generators.Base.extend({
 
     this.npmInstall([
       '@cycle/core',
-      '@cycle/dom'
+      '@cycle/dom',
+      '@cyclic/template-demo-pages',
+      'cuid'
     ], {save: true});
 
     this.installDependencies({bower: false});
