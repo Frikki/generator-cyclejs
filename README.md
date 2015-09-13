@@ -15,7 +15,7 @@ $ npm install --global yo generator-cyclejs
 Make a new diretory, and `cd` into it:
 
 ```shell
-$ mkdir my-new-dialogue && cd $
+$ mkdir my-new-dialogue && cd $_
 ```
 
 Run `yo cyclejs`:
