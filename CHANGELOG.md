@@ -1,3 +1,12 @@
+# v2.0.2 (2015-09-13)
+
+
+## Bug Fixes
+
+- **app:** move dependencies from template to script
+  ([19624ae9](https://github.com/Frikki/generator-cyclejs/commits/19624ae9b4a912cd8b25e3a3481cba5e80e72230))
+
+
 # v2.0.1 (2015-09-13)
 
 
