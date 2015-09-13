@@ -13,12 +13,12 @@ $ npm install --save <%= moduleName %>
 ```js
 import <%= moduleNameCamelized %> from '<%= moduleName %>';
 
-const <%= moduleNameCamelized %>Instance = <%= moduleNameCamelized %>({DOM});
+const <%= moduleNameCamelized %>Instance = <%= moduleNameCamelized %>({DOM, props$});
 ```
 
 ## API
 
-### <%= moduleNameCamelized %>({DOM, props$}, optCycleId)
+### <%= moduleNameCamelized %>({DOM, props$})
 
 #### DOM
 
@@ -32,18 +32,11 @@ Type: `Observable`
 
 Sequence of properties.
 
-#### optCycleId
-
-Type: `String`
-Default: `` `${<%= moduleName %>}-${idSuffix++}` ``, `let idSuffix = 0;`
-
-Optional CSS class name as cycle Id.
-
 #### Returns
 
 Type: `Object`
 
-`{DOM, state$}`
+`{DOM, id, state$}`
 
 ## Licence
 
