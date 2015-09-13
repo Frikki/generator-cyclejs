@@ -1,3 +1,24 @@
+# v2.0.0 (2015-09-13)
+
+
+## Features
+
+- established dialogue structure
+  ([58a9c709](https://github.com/Frikki/generator-cyclejs/commits/58a9c709b151d9ed5716803ad3e07936479a6f84),
+   [#1](https://github.com/Frikki/generator-cyclejs/issues/1))
+
+
+## Breaking Changes
+
+- due to [58a9c709](https://github.com/Frikki/generator-cyclejs/commits/58a9c709b151d9ed5716803ad3e07936479a6f84),
+ 
+
+dialogue module signature has changed.
+
+Closes #1
+
+
+
 # v1.3.1 (2015-09-09)
 
 
