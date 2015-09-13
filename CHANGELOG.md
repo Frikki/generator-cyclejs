@@ -1,3 +1,12 @@
+# v2.0.1 (2015-09-13)
+
+
+## Bug Fixes
+
+- **app/templates:** update `README.md`
+  ([53b843e1](https://github.com/Frikki/generator-cyclejs/commits/53b843e1e454736c46f6b396ef4d6b831c575c30))
+
+
 # v2.0.0 (2015-09-13)
 
 
